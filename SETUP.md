@@ -9,7 +9,7 @@
 | Pilgrimage-of-Kindness-2026-A4.pdf | Printable board, A4 (most other countries) |
 | board-front.webp, board-back.webp | Preview pictures of the board |
 | logo-2026.webp, logo-2027.webp | The yearly logos |
-| maps/ (folder) | The world, U.S., and Canada maps that fill in as people log their kindness |
+| world.svg, usa.svg, canada.svg | The maps that fill in as people log their kindness |
 | favicon.png | The little icon in the browser tab |
 | signature.png | Tess and Rory's signature |
 | share-image.jpg | The picture that shows when someone texts or posts the link |
@@ -58,7 +58,7 @@
 ---
 
 ## Uploading an update
-Drag the changed files onto **Add file → Upload files** and **Commit changes**. Files with the same name replace the old ones. To upload the **maps** folder, drag the folder itself (this is the one time you drag a folder): GitHub keeps it as `maps/` with the three map files inside.
+Drag the changed files onto **Add file → Upload files** and **Commit changes**. Files with the same name replace the old ones.
 
 ## Changing the site with Claude
 The whole site is one plain file, `index.html`, so you can redesign it with Claude any time.

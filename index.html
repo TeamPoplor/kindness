@@ -517,8 +517,11 @@ async function showMap(which) {
     b.setAttribute("aria-selected", b.dataset.map === which ? "true" : "false"));
   const box = document.getElementById("map-box");
   if (!mapCache[which]) {
-    try { mapCache[which] = await (await fetch("maps/" + which + ".svg")).text(); }
-    catch (e) { box.textContent = ""; return; }
+    // The map files can sit in a "maps" folder or loose next to index.html; either works.
+    for (const path of [which + ".svg", "maps/" + which + ".svg"]) {
+      try { const r = await fetch(path); if (r.ok) { mapCache[which] = await r.text(); break; } } catch (e) {}
+    }
+    if (!mapCache[which]) { box.textContent = ""; return; }
   }
   if (currentMap !== which) return;
   box.innerHTML = mapCache[which];
