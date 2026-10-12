@@ -6,7 +6,7 @@
 <title>The Pilgrimage of Kindness</title>
 <meta name="description" content="Nine acts of kindness for nine people this November. Download a board, spread some good, and help us count every life touched.">
 
-<!-- Link previews (texts, Facebook, etc.). Change the domain once it's purchased. -->
+<!-- Link previews (texts, Facebook, etc.) -->
 <meta property="og:title" content="The Pilgrimage of Kindness 2026">
 <meta property="og:description" content="Nine acts of kindness for nine people this November. Be a seed of good.">
 <meta property="og:image" content="https://pilgrimageofkindness.org/share-image.jpg">
@@ -31,8 +31,13 @@
     --ink:#1d1410;
     --muted:#5e4a3a;
     --radius:18px;
+
+    /* SITE SIZES: section headings and intro lines grow with the screen, up to these limits */
+    --h2-size:clamp(2.2rem, 2.2vw + 1.4rem, 3.6rem);
+    --lede-size:clamp(1.15rem, .5vw + 1rem, 1.5rem);
   }
   *{box-sizing:border-box}
+  [hidden]{display:none !important}
   html{scroll-behavior:smooth}
   body{
     margin:0;
@@ -47,15 +52,18 @@
       var(--parchment);
     background-attachment:fixed;
   }
+  @media (min-width:1400px){body{font-size:19px}}
   img{max-width:100%;display:block}
   a{color:var(--orange-deep)}
   h1,h2,h3{font-family:"Lilita One",Impact,sans-serif;font-weight:400;letter-spacing:.5px;line-height:1.15;margin:0 0 .5em}
-  h2{font-size:clamp(2rem,5vw,2.8rem);color:var(--orange);text-shadow:2px 2px 0 var(--bark)}
+  h2,.h2{font-size:var(--h2-size);color:var(--orange);text-shadow:2px 2px 0 var(--bark)}
   h3{font-size:1.5rem;color:var(--bark)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
   section{padding:72px 0}
   .center{text-align:center}
-  .lede{font-size:1.2rem;color:var(--muted);max-width:640px;margin:0 auto 1.5em}
+  .lede{font-size:var(--lede-size);color:var(--muted);max-width:680px;margin:0 auto 1.5em}
+  h2.has-sub{margin-bottom:.1em}
+  .subhead{font-family:"Lilita One",sans-serif;font-weight:400;letter-spacing:.5px;color:var(--bark);font-size:clamp(1.35rem,.8vw + 1.1rem,1.9rem);line-height:1.2;margin:0 0 48px}
 
   /* ---------- Top bar ---------- */
   .topbar{position:sticky;top:0;z-index:10;background:rgba(29,20,16,.94);backdrop-filter:blur(6px)}
@@ -65,7 +73,7 @@
   .nav{display:flex;gap:18px;flex-wrap:wrap}
   .nav a{color:#fbe3b0;text-decoration:none;font-weight:600;font-size:.95rem}
   .nav a:hover{color:var(--gold)}
-  @media (max-width:720px){.nav{display:none}}
+  @media (max-width:820px){.nav{display:none}}
 
   /* ---------- Buttons ---------- */
   .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -84,27 +92,43 @@
 
   /* ---------- Hero ---------- */
   .hero{padding:56px 0 64px;text-align:center}
-  .hero-logo{width:min(380px,78vw);margin:0 auto 28px;filter:drop-shadow(0 14px 24px rgba(90,52,23,.35));animation:float 6s ease-in-out infinite}
-  @keyframes float{50%{transform:translateY(-8px)}}
-  @media (prefers-reduced-motion:reduce){.hero-logo{animation:none}}
-  .hero h1{font-size:clamp(2.2rem,6.5vw,4rem);color:var(--ink);margin-bottom:.25em}
+  .hero-logo{width:min(380px,78vw);margin:0 auto 28px;filter:drop-shadow(0 14px 24px rgba(90,52,23,.35))}
+  .hero h1{font-size:clamp(2.2rem,6.5vw,4.2rem);color:var(--ink);margin-bottom:.35em}
   .hero h1 span{color:var(--orange);text-shadow:2px 2px 0 var(--bark)}
-  .dates{display:inline-block;background:var(--ink);color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.9rem;padding:6px 16px;border-radius:999px;margin-bottom:24px}
 
   /* ---------- Counter ---------- */
-  .counter{background:var(--ink);color:#fff;padding:56px 0;border-top:6px solid var(--orange);border-bottom:6px solid var(--orange)}
-  .counter .label{font-family:"Lilita One",sans-serif;color:var(--gold);font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:1px}
-  .big-number{font-family:"Lilita One",sans-serif;font-size:clamp(4.5rem,16vw,9rem);line-height:1;color:#fff;text-shadow:4px 4px 0 var(--orange);margin:8px 0 4px;font-variant-numeric:tabular-nums}
-  .counter .note{color:#e9d6b4;font-size:1rem;margin:0}
-  .mini-stats{display:flex;justify-content:center;gap:28px 48px;margin-top:32px;flex-wrap:wrap}
+  .counter{background:var(--ink);color:#fff;padding:64px 0;border-top:6px solid var(--orange);border-bottom:6px solid var(--orange)}
+  .counter .label{color:var(--gold);text-shadow:none;margin:0}
+  .big-number{font-family:"Lilita One",sans-serif;font-size:clamp(4.5rem,16vw,9rem);line-height:1;color:#fff;text-shadow:4px 4px 0 var(--orange);margin:12px 0 6px;font-variant-numeric:tabular-nums}
+  .counter .note{color:#e9d6b4;font-size:1.05rem;margin:0}
+  .mini-stats{display:flex;justify-content:center;gap:28px 56px;margin-top:36px;flex-wrap:wrap}
   .mini-stats div{text-align:center}
   .mini-stats strong{display:block;font-family:"Lilita One",sans-serif;font-size:2.6rem;color:var(--gold);font-weight:400;line-height:1.1}
   .mini-stats span{color:#e9d6b4;font-size:1rem}
 
+  /* ---------- Maps ---------- */
+  .maps{margin-top:56px}
+  .maps h3{color:var(--gold);font-size:clamp(1.5rem,1vw + 1.2rem,2.1rem)}
+  .map-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 20px}
+  .map-tabs button{font:600 1rem "Open Sans",sans-serif;color:#e9d6b4;background:transparent;border:2px solid #5a4636;border-radius:999px;padding:8px 20px;cursor:pointer}
+  .map-tabs button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .map-tabs button:hover{border-color:var(--gold)}
+  .map{max-width:860px;margin:0 auto;min-height:200px}
+  .map svg{width:100%;height:auto;display:block}
+  .map path{fill:#3a2d24;stroke:var(--ink);stroke-width:.6;transition:fill .4s}
+  .map path.reached{fill:var(--gold)}
+  .map path:hover{fill:#5a4636}
+  .map path.reached:hover{fill:#ffd768}
+  .map-caption{color:#e9d6b4;margin:14px 0 0;font-size:1.05rem}
+  .map-caption strong{color:var(--gold)}
+  .map-note{color:#b9a58c;font-size:.95rem;margin:6px 0 0}
+
   /* ---------- How it works ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  #how{padding-bottom:28px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
   @media (max-width:860px){.steps{grid-template-columns:1fr}}
   .step{background:var(--cream);border:3px solid var(--bark);border-radius:var(--radius);padding:28px 24px;box-shadow:6px 6px 0 rgba(90,52,23,.25);position:relative}
+  .step h3{font-size:clamp(1.5rem,.6vw + 1.25rem,1.9rem)}
   .step .num{position:absolute;top:-22px;left:22px;width:46px;height:46px;border-radius:50%;background:var(--gold);border:3px solid var(--ink);display:grid;place-items:center;font-family:"Lilita One",sans-serif;font-size:1.5rem}
   .step p{margin:0}
 
@@ -116,8 +140,10 @@
      linear-gradient(45deg,transparent 46%,var(--orange) 46%,var(--orange) 54%,transparent 54%),
      linear-gradient(-45deg,transparent 46%,var(--orange) 46%,var(--orange) 54%,transparent 54%)}
   .caption{text-align:center;color:var(--muted);font-size:1rem;margin-top:12px;font-style:italic}
+  .caption strong{font-style:normal;font-family:"Lilita One",sans-serif;font-weight:400;font-size:1.3rem;color:var(--orange-deep);letter-spacing:.5px}
 
   /* ---------- Download ---------- */
+  #board{padding-top:28px}
   .panel{background:var(--cream);border:3px solid var(--bark);border-radius:28px;padding:48px 32px;box-shadow:10px 10px 0 rgba(90,52,23,.22)}
   .download-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
   @media (max-width:860px){.download-grid{grid-template-columns:1fr}}
@@ -127,26 +153,34 @@
   .previews img:last-child{transform:rotate(3deg) translateY(14px)}
   .tip{font-size:1rem;color:var(--muted);margin-top:14px}
 
-  /* ---------- Report ---------- */
+  /* ---------- Log your acts of kindness ---------- */
   .report{background:linear-gradient(135deg,var(--gold),var(--orange));border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
   .report h2{color:#fff}
   .report .lede{color:var(--ink)}
 
   /* ---------- Letter ---------- */
-  .letter{max-width:720px;margin:0 auto;background:#fffdf7;border-radius:6px;padding:56px clamp(24px,6vw,64px);box-shadow:0 18px 40px rgba(90,52,23,.25);position:relative}
+  #about{padding-bottom:40px}
+  .letter{max-width:720px;margin:32px auto 0;background:#fffdf7;border-radius:6px;padding:56px clamp(24px,6vw,64px);box-shadow:0 18px 40px rgba(90,52,23,.25);position:relative}
   .letter::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(224,134,26,.45);border-radius:4px;pointer-events:none}
   .letter p{margin:0 0 1.1em}
   .letter .opening{font-weight:700;font-size:1.15rem}
   .signature{width:min(300px,70%);margin-top:18px}
 
-  /* ---------- Stories & honor roll ---------- */
-  .stories{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:32px}
-  .story{background:var(--cream);border-left:6px solid var(--orange);border-radius:10px;padding:22px 24px;box-shadow:4px 4px 0 rgba(90,52,23,.18)}
-  .story p{margin:0 0 .6em;font-style:italic}
-  .story cite{font-style:normal;font-weight:700;color:var(--bark)}
-  .honor{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px;padding:0;list-style:none}
+  /* ---------- Honor roll & stories ---------- */
+  .honor{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:28px 0 0;padding:0;list-style:none}
   .honor li{background:var(--ink);color:var(--gold);border-radius:999px;padding:6px 16px;font-weight:600}
   .placeholder{color:var(--muted);font-style:italic;text-align:center}
+  #stories{padding-top:40px;padding-bottom:24px}
+  #years{padding-top:40px}
+  .stories-block{margin-top:64px}
+  .carousel{display:flex;align-items:center;gap:16px;max-width:820px;margin:28px auto 0}
+  .carousel .stories{flex:1}
+  .story{background:var(--cream);border-left:6px solid var(--orange);border-radius:10px;padding:26px 30px;box-shadow:4px 4px 0 rgba(90,52,23,.18);text-align:left}
+  .story p{margin:0 0 .6em;font-style:italic;font-size:1.1rem}
+  .story cite{font-style:normal;font-weight:700;color:var(--bark)}
+  .arrow{flex:none;width:48px;height:48px;border-radius:50%;border:3px solid var(--ink);background:var(--gold);box-shadow:3px 3px 0 var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+  .arrow:hover{background:#ffd768}
+  .story-count{color:var(--muted);font-size:.95rem;margin-top:12px}
 
   /* ---------- Years ---------- */
   .years{display:flex;flex-wrap:wrap;gap:36px;justify-content:center;margin-top:32px}
@@ -154,10 +188,12 @@
   .year img{width:180px;margin:0 auto 10px;filter:drop-shadow(0 8px 14px rgba(90,52,23,.3))}
   .year strong{font-family:"Lilita One",sans-serif;font-size:1.4rem;font-weight:400}
   .year span{display:block;color:var(--muted);font-size:1rem}
-  .year.future img{opacity:.25;filter:grayscale(1)}
+  .year.future img{opacity:.35;filter:grayscale(1)}
 
-  footer{background:var(--ink);color:#e9d6b4;text-align:center;padding:36px 20px;font-size:1rem}
-  footer .motto{font-family:"Lilita One",sans-serif;color:var(--gold);font-size:1.6rem;letter-spacing:1px;margin-bottom:6px}
+  footer{background:var(--ink);color:#e9d6b4;text-align:center;padding:36px 20px;font-size:1rem;line-height:1.7}
+  footer .name{font-family:"Lilita One",sans-serif;color:var(--gold);font-size:1.6rem;letter-spacing:1px}
+  footer .credit{color:#8f7c66;font-size:.8rem;margin-top:10px}
+  footer .credit a{color:#8f7c66}
 </style>
 </head>
 <body>
@@ -169,7 +205,7 @@
     <nav class="nav">
       <a href="#how">How it works</a>
       <a href="#board">Get a board</a>
-      <a href="#report">Report</a>
+      <a href="#log">Log your acts of kindness</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -181,33 +217,44 @@
 <section class="hero">
   <div class="wrap">
     <img class="hero-logo" src="logo-2026.webp" alt="The Pilgrimage of Kindness 2026 logo: a pinecone in a golden circle with the words Be a Seed of Good">
-    <div class="dates">November 2026</div>
-    <h1>Nine people. <span>Nine acts of kindness.</span></h1>
-    <p class="lede">Fill a board, cross off each square as you go, and help us count every life touched by kindness this November.</p>
+    <h1>Nine people.<br><span>Nine acts of kindness.</span></h1>
+    <p class="lede">Fill a board, cross off each square as you go, and help us spread kindness this November!</p>
     <div class="btns">
       <a class="btn btn-gold" href="#board">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         Get your board
       </a>
-      <a class="btn btn-orange" href="#report">
+      <a class="btn btn-orange" href="https://forms.gle/xs7kNiYe1WtLL3ox5" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        Report your kindness
+        I'm done!
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ COUNTER ============ -->
+<!-- ============ COUNTER & MAPS ============ -->
 <section class="counter center" aria-live="polite">
   <div class="wrap">
-    <div class="label">Lives Touched by Kindness</div>
+    <h2 class="label">Lives Touched by Kindness</h2>
     <div class="big-number" id="count-lives">0</div>
     <p class="note" id="count-note">and counting</p>
     <div class="mini-stats">
-      <div><strong id="count-pilgrims">0</strong><span>pilgrims reporting</span></div>
+      <div><strong id="count-acts">0</strong><span>acts of kindness</span></div>
+      <div><strong id="count-pilgrims">0</strong><span>participants</span></div>
       <div><strong id="count-full">0</strong><span>full boards</span></div>
       <div><strong id="count-countries">0</strong><span>countries reached</span></div>
-      <div><strong id="count-states">0</strong><span>U.S. states &amp; territories</span></div>
+    </div>
+
+    <div class="maps">
+      <h3>Where kindness has traveled</h3>
+      <div class="map-tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-map="world">World</button>
+        <button role="tab" aria-selected="false" data-map="usa">United States</button>
+        <button role="tab" aria-selected="false" data-map="canada">Canada</button>
+      </div>
+      <div class="map" id="map-box"></div>
+      <p class="map-caption" id="map-caption"></p>
+      <p class="map-note" id="map-note" hidden></p>
     </div>
   </div>
 </section>
@@ -215,8 +262,8 @@
 <!-- ============ HOW IT WORKS ============ -->
 <section id="how">
   <div class="wrap center">
-    <h2>How it works</h2>
-    <p class="lede">Think of it as kindness bingo.</p>
+    <h2 class="has-sub">How it works</h2>
+    <p class="subhead">Think of it as kindness bingo.</p>
     <div class="steps" style="text-align:left">
       <div class="step">
         <div class="num">1</div>
@@ -226,12 +273,12 @@
       <div class="step">
         <div class="num">2</div>
         <h3>Let us know!</h3>
-        <p>No matter how far you get, report your acts of kindness once you're done, so we can see the difference we've made together.</p>
+        <p>No matter how far you get, <a href="https://forms.gle/xs7kNiYe1WtLL3ox5" target="_blank" rel="noopener">log your acts of kindness</a> once you’re done, so we can see the difference we’ve made together.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
         <h3>Get others involved</h3>
-        <p>Magnify your impact by inviting others to join. Friends and family can download their own board right here.</p>
+        <p>Magnify your impact by inviting others to join. Friends and family can <a href="#board">download their own board here</a>.</p>
       </div>
     </div>
 
@@ -246,7 +293,7 @@
       <div>Mail carrier: warm cocoa</div>
       <div>Teacher: tell her why she matters</div>
     </div>
-    <p class="caption">An example board with its first line complete. Bingo!</p>
+    <p class="caption">An example board with its first line complete.<br><strong>Kindness Bingo!</strong></p>
   </div>
 </section>
 
@@ -260,7 +307,7 @@
       </div>
       <div>
         <h2>Get your board</h2>
-        <p>Didn't get a printed board? No problem. Download one, print it at home, and you're ready to go. Print a few extra to share!</p>
+        <p>Didn't get a printed board? No problem. Download one, print it at home, and you're ready to go. Better yet, print a few extra to share!</p>
         <div class="btns" style="justify-content:flex-start">
           <a class="btn btn-gold" href="Pilgrimage-of-Kindness-2026-Letter.pdf" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
@@ -271,21 +318,20 @@
             A4 (international)
           </a>
         </div>
-        <p class="tip">Two pages: the board and the instructions. Print double-sided if you can.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ REPORT ============ -->
-<section id="report" class="report center">
+<!-- ============ LOG YOUR ACTS OF KINDNESS ============ -->
+<section id="log" class="report center">
   <div class="wrap">
-    <h2>Report your kindness</h2>
-    <p class="lede">Every act counts, whether you finished one square or all nine. When you're done, tell us how far you got and we'll add you to the count.</p>
+    <h2>Log your acts of kindness</h2>
+    <p class="lede">Every act counts, whether you finished one square or all nine. When you're done, tell us how far you got, and we'll add you to the count!</p>
     <div class="btns">
       <a class="btn btn-gold" href="https://forms.gle/xs7kNiYe1WtLL3ox5" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        I made an impact!
+        I'm done!
       </a>
     </div>
   </div>
@@ -294,7 +340,7 @@
 <!-- ============ ABOUT (the girls' letter) ============ -->
 <section id="about">
   <div class="wrap">
-    <h2 class="center">Why we started</h2>
+    <h2 class="center">Why we are doing this</h2>
     <div class="letter">
       <p class="opening">The Pilgrimage of Kindness started as a simple idea: the world would be a better place if people were nicer to each other.</p>
       <p>We thought about how to bring the idea to life, and The Pilgrimage of Kindness was born. Think of it as kindness bingo :)</p>
@@ -305,31 +351,38 @@
   </div>
 </section>
 
-<!-- ============ STORIES & HONOR ROLL ============
-     To add a story, copy one <div class="story">...</div> block and change the words.
-     To add a name to the honor roll, copy one <li>...</li> line.
-     Delete the "placeholder" paragraphs once you add real ones.
+<!-- ============ NINE FOR NINE HONOR ROLL & SEEDS OF GOOD ============
+     HONOR ROLL: copy a <li>...</li> line for each name (First name and last initial, initials, or Anonymous).
+     SEEDS OF GOOD: copy a whole <div class="story">...</div> block for each story.
+     The "coming soon" messages hide by themselves once there's at least one name or story,
+     and the arrows appear by themselves once there are two or more stories.
 -->
 <section id="stories">
   <div class="wrap center">
-    <h2>Seeds of good</h2>
-    <p class="lede">Stories shared by pilgrims along the way.</p>
-
-    <p class="placeholder">Stories will start appearing here in November.</p>
-    <div class="stories" style="text-align:left">
-      <!--
-      <div class="story">
-        <p>"Write the reflection here, exactly as it was shared."</p>
-        <cite>— First name, Town</cite>
-      </div>
-      -->
-    </div>
-
-    <h3 style="margin-top:56px">The Full Board Honor Roll</h3>
-    <p class="placeholder">Complete all nine acts and your name could be here!</p>
-    <ul class="honor">
+    <h2>Nine for Nine Honor Roll</h2>
+    <p class="placeholder" id="honor-placeholder">Complete all nine acts and your name will be here!</p>
+    <ul class="honor" id="honor-list">
       <!-- <li>First name L.</li> -->
     </ul>
+
+    <div class="stories-block">
+      <h2 class="has-sub">Seeds of good</h2>
+      <p class="subhead" style="margin-bottom:24px">Stories shared by people participating!</p>
+      <p class="placeholder" id="stories-placeholder">Stories will start appearing here in November.</p>
+      <div class="carousel" id="carousel" hidden>
+        <button class="arrow" id="story-prev" aria-label="Previous story">&#8592;</button>
+        <div class="stories" id="stories-list">
+          <!--
+          <div class="story">
+            <p>"Write the reflection here, exactly as it was shared."</p>
+            <cite>— First name, Town</cite>
+          </div>
+          -->
+        </div>
+        <button class="arrow" id="story-next" aria-label="Next story">&#8594;</button>
+      </div>
+      <p class="story-count" id="story-count"></p>
+    </div>
   </div>
 </section>
 
@@ -343,9 +396,8 @@
         <strong>2026</strong>
         <span>The first pilgrimage</span>
       </div>
-      <!-- Next year: copy the block above, change the image, year and words, and remove the "future" block below. -->
       <div class="year future">
-        <img src="logo-2026.webp" alt="">
+        <img src="logo-2027.webp" alt="2027 logo: hands holding a seedling">
         <strong>2027</strong>
         <span>Coming next year</span>
       </div>
@@ -356,74 +408,182 @@
 </main>
 
 <footer>
-  <div class="motto">Be a seed of good.</div>
-  <div>The Pilgrimage of Kindness &middot; Started by Tess and Rory in 2026</div>
+  <div class="name">The Pilgrimage of Kindness</div>
+  <div>Copyright 2026, Tess and Rory. All rights reserved.</div>
+  <div class="credit">Map data: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> and the U.S. Census Bureau.</div>
 </footer>
 
 <script>
 /* =====================================================================
    COUNTER SETTINGS
    ---------------------------------------------------------------------
-   COUNTER_CSV_URL: the "Publish to web" CSV link for the counter sheet
-   (see the setup instructions). Leave it as "" to use the numbers below.
-
-   The FALLBACK numbers are shown if the link is empty or can't load,
-   so the site never shows a broken counter. You can also update these
-   by hand as a backup.
+   COUNTER_CSV_URL: the "Publish to web" CSV link for the Kindness Counter
+   sheet. Row 1 of that sheet holds, in order:
+     A acts, B pilgrims, C full boards, D countries, E U.S. states,
+     F list of countries, G list of U.S. states/territories, H list of provinces
+   The FALLBACK numbers show if the link can't load, so the site never
+   shows a broken counter.
    ===================================================================== */
 const COUNTER_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRlHWCwEC6WMvmNR9qkcp9f4qC3wZ8Wx8qJA-zEKX5lzWH8D1sGtI6MYGaVL_kL8s_lQ1IyuddYTiNt/pub?gid=0&single=true&output=csv";
 
-const FALLBACK = { lives: 0, pilgrims: 0, full: 0, countries: 0, states: 0 };
+const FALLBACK = { acts: 0, pilgrims: 0, full: 0, countries: 0, countryList: [], stateList: [], provinceList: [] };
 
 /* ----- Nothing below here needs changing ----- */
+
+// Form country names that are spelled differently on the world map
+const MAP_NAMES = {
+  "United States": "United States of America",
+  "Bosnia and Herzegovina": "Bosnia and Herz.",
+  "Central African Republic": "Central African Rep.",
+  "Congo (Republic of the)": "Congo",
+  "Congo (Democratic Republic of the)": "Dem. Rep. Congo",
+  "Dominican Republic": "Dominican Rep.",
+  "Equatorial Guinea": "Eq. Guinea",
+  "Eswatini": "eSwatini",
+  "North Macedonia": "Macedonia",
+  "Solomon Islands": "Solomon Is.",
+  "South Sudan": "S. Sudan"
+};
+
+let DATA = null;
+
+function parseCSV(text) {
+  const rows = []; let row = [], field = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') q = false;
+      else field += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(field); rows.push(row); row = []; field = "";
+    } else field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
 function animate(el, target) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || target < 1) { el.textContent = target.toLocaleString(); return; }
   const start = performance.now(), dur = 1600;
   function tick(now) {
     const t = Math.min(1, (now - start) / dur);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(target * eased).toLocaleString();
+    el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString();
     if (t < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
 
-function show(nums) {
-  animate(document.getElementById("count-lives"), nums.lives);
-  animate(document.getElementById("count-pilgrims"), nums.pilgrims);
-  animate(document.getElementById("count-full"), nums.full);
-  animate(document.getElementById("count-countries"), nums.countries);
-  animate(document.getElementById("count-states"), nums.states);
-  if (nums.lives === 0) {
-    document.getElementById("count-note").textContent = "The count begins November 1. Will you be the first?";
-  }
+function show(d) {
+  DATA = d;
+  // Lives touched = every act of kindness + each pilgrim who did them
+  const lives = d.acts + d.pilgrims;
+  animate(document.getElementById("count-lives"), lives);
+  animate(document.getElementById("count-acts"), d.acts);
+  animate(document.getElementById("count-pilgrims"), d.pilgrims);
+  animate(document.getElementById("count-full"), d.full);
+  animate(document.getElementById("count-countries"), d.countryList.length || d.countries);
+  document.getElementById("count-note").textContent = lives === 0
+    ? "The count begins November 1. Will you be the first?"
+    : "and counting. Thank you for making this possible!";
+  showMap(currentMap);
 }
 
 async function loadCounter() {
-  if (!COUNTER_CSV_URL) return show(FALLBACK);
   try {
-    const res = await fetch(COUNTER_CSV_URL + (COUNTER_CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now());
+    const res = await fetch(COUNTER_CSV_URL + "&t=" + Date.now());
     if (!res.ok) throw new Error(res.status);
-    const text = await res.text();
-    // Expects row 1: lives, pilgrims, full boards, countries, U.S. states
-    const cells = text.trim().split(/\r?\n/)[0].split(",").map(c => parseInt(c.replace(/[^0-9]/g, ""), 10));
-    if (isNaN(cells[0])) throw new Error("bad data");
-    show({ lives: cells[0], pilgrims: cells[1] || 0, full: cells[2] || 0, countries: cells[3] || 0, states: cells[4] || 0 });
+    const row = parseCSV(await res.text())[0] || [];
+    const num = i => parseInt(String(row[i] || "").replace(/[^0-9]/g, ""), 10) || 0;
+    const list = i => String(row[i] || "").split("|").map(s => s.trim()).filter(Boolean);
+    show({ acts: num(0), pilgrims: num(1), full: num(2), countries: num(3),
+           countryList: list(5), stateList: list(6), provinceList: list(7) });
   } catch (e) {
     show(FALLBACK);
   }
 }
+
+/* ----- Maps ----- */
+const mapCache = {};
+let currentMap = "world";
+
+async function showMap(which) {
+  currentMap = which;
+  document.querySelectorAll(".map-tabs button").forEach(b =>
+    b.setAttribute("aria-selected", b.dataset.map === which ? "true" : "false"));
+  const box = document.getElementById("map-box");
+  if (!mapCache[which]) {
+    try { mapCache[which] = await (await fetch("maps/" + which + ".svg")).text(); }
+    catch (e) { box.textContent = ""; return; }
+  }
+  if (currentMap !== which) return;
+  box.innerHTML = mapCache[which];
+
+  const d = DATA || FALLBACK;
+  let names = [], noun = "", total = 0;
+  if (which === "world") {
+    names = d.countryList.map(n => MAP_NAMES[n] || n);
+    if (d.stateList.includes("Puerto Rico")) names.push("Puerto Rico");
+    total = d.countryList.length; noun = total === 1 ? "country" : "countries";
+  } else if (which === "usa") {
+    names = d.stateList; total = names.length;
+    noun = total === 1 ? "U.S. state or territory" : "U.S. states and territories";
+  } else {
+    names = d.provinceList; total = names.length;
+    noun = total === 1 ? "Canadian province or territory" : "Canadian provinces and territories";
+  }
+  const shown = new Set();
+  box.querySelectorAll("path").forEach(p => {
+    if (names.includes(p.dataset.name)) { p.classList.add("reached"); shown.add(p.dataset.name); }
+  });
+  document.getElementById("map-caption").innerHTML = total
+    ? `Kindness has reached <strong>${total}</strong> ${noun}!`
+    : "As participants log their kindness, the map will fill in.";
+  const hidden = names.filter(n => !shown.has(n));
+  const note = document.getElementById("map-note");
+  note.hidden = hidden.length === 0;
+  note.textContent = "Also reached, but too small to see on this map: " + hidden.join(", ") + ".";
+}
+
+document.querySelectorAll(".map-tabs button").forEach(b =>
+  b.addEventListener("click", () => showMap(b.dataset.map)));
 
 // Start counting when the counter scrolls into view
 const target = document.querySelector(".counter");
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) { loadCounter(); io.disconnect(); }
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
   io.observe(target);
 } else {
   loadCounter();
+}
+
+/* ----- Honor roll & story arrows ----- */
+const honorItems = document.querySelectorAll("#honor-list li");
+document.getElementById("honor-placeholder").hidden = honorItems.length > 0;
+
+const stories = Array.from(document.querySelectorAll("#stories-list .story"));
+let storyIndex = 0;
+function showStory(i) {
+  storyIndex = (i + stories.length) % stories.length;
+  stories.forEach((s, n) => s.hidden = n !== storyIndex);
+  document.getElementById("story-count").textContent =
+    stories.length > 1 ? `${storyIndex + 1} of ${stories.length}` : "";
+}
+if (stories.length) {
+  document.getElementById("stories-placeholder").hidden = true;
+  document.getElementById("carousel").hidden = false;
+  const multi = stories.length > 1;
+  document.getElementById("story-prev").style.visibility = multi ? "visible" : "hidden";
+  document.getElementById("story-next").style.visibility = multi ? "visible" : "hidden";
+  document.getElementById("story-prev").addEventListener("click", () => showStory(storyIndex - 1));
+  document.getElementById("story-next").addEventListener("click", () => showStory(storyIndex + 1));
+  showStory(0);
 }
 </script>
 </body>

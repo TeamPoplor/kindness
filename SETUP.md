@@ -8,7 +8,8 @@
 | Pilgrimage-of-Kindness-2026-Letter.pdf | Printable board, U.S. Letter |
 | Pilgrimage-of-Kindness-2026-A4.pdf | Printable board, A4 (most other countries) |
 | board-front.webp, board-back.webp | Preview pictures of the board |
-| logo-2026.webp | The 2026 logo |
+| logo-2026.webp, logo-2027.webp | The yearly logos |
+| maps/ (folder) | The world, U.S., and Canada maps that fill in as people log their kindness |
 | favicon.png | The little icon in the browser tab |
 | signature.png | Tess and Rory's signature |
 | share-image.jpg | The picture that shows when someone texts or posts the link |
@@ -56,6 +57,9 @@
 
 ---
 
+## Uploading an update
+Drag the changed files onto **Add file → Upload files** and **Commit changes**. Files with the same name replace the old ones. To upload the **maps** folder, drag the folder itself (this is the one time you drag a folder): GitHub keeps it as `maps/` with the three map files inside.
+
 ## Changing the site with Claude
 The whole site is one plain file, `index.html`, so you can redesign it with Claude any time.
 
@@ -70,11 +74,30 @@ The whole site is one plain file, `index.html`, so you can redesign it with Clau
 - Nothing is ever truly lost: GitHub keeps every version. Open a file → **History** to see or restore an older one.
 - Quick color change: the site's colors are listed at the top of index.html under "SITE COLORS."
 
-## In November: stories and the Honor Roll
-In index.html, search for **Seeds of good**. There are examples inside `<!-- -->` marks: copy a story block or an honor-roll line, fill it in, remove the "placeholder" sentence above it, and upload. (Or ask Claude to add them for you.) Post only first names and last initials (or what the person asked for), and read every story before it goes up.
+## In November: the Honor Roll and stories
+In index.html, search for **Nine for Nine Honor Roll**. There are examples inside `<!-- -->` marks:
+- **Honor Roll:** copy the `<li>...</li>` line for each name, *outside* the `<!-- -->` marks.
+- **Seeds of good:** copy a whole `<div class="story">...</div>` block for each story, *outside* the `<!-- -->` marks.
 
-## How the counter works (for reference)
-The form's answers go to "The Pilgrimage of Kindness 2026 (Responses)." A separate sheet, "Kindness Counter," copies only the acts, country, and state columns (no names or stories), and its **Counter** tab is published to the web. The site reads row 1 of that tab: lives touched, pilgrims reporting, full boards, countries reached, U.S. states reached. Google refreshes it every few minutes.
+The "coming soon" messages disappear by themselves once there's at least one name or story, and the ← → arrows appear by themselves once there are two or more stories. (Or ask Claude to add them for you.) Post only first names and last initials (or what the person asked for), and read every story before it goes up.
+
+## How the counter and maps work (for reference)
+The form's answers go to "The Pilgrimage of Kindness 2026 (Responses)." A separate sheet, "Kindness Counter," copies only the acts, country, state, and province columns (no names or stories), and its **Counter** tab is published to the web. The site reads row 1 of that tab:
+
+| Cell | What it is |
+|---|---|
+| A1 | acts of kindness |
+| B1 | pilgrims (people who logged at least one act) |
+| C1 | full boards |
+| D1 | countries reached |
+| E1 | U.S. states reached (not shown on the site any more, but harmless) |
+| F1 | list of countries, separated by \| (fills the world map) |
+| G1 | list of U.S. states/territories (fills the U.S. map) |
+| H1 | list of Canadian provinces/territories (fills the Canada map) |
+
+**Lives touched** on the site = acts of kindness + pilgrims (every act touches a life, and so does doing them). Google refreshes the published sheet every few minutes.
+
+**Removing or fixing a response:** the form and the response sheet each keep their own copy. Delete (or correct) the row in the **response sheet**, since that's what the website reads; delete it in the form too (Responses → Individual → trash) to keep the form tidy.
 
 ## Next year
 Add the new logo (e.g., `logo-2027.webp`) and new board PDFs, then ask Claude to update the year, the logo, the downloads, and the "Pilgrimages through the years" section. Make a fresh form and counter sheet (or clear the old responses) so the new year starts at zero.
